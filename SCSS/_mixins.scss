@@ -1,0 +1,22 @@
+@mixin btn_span($width,$height){
+   width: $btn_width;
+   height: btn_height;
+   background:linear-gradient(270deg, trasnsparent, #45c74e);
+}
+
+// @mixin box_shadow($offset-x, $offset-y, $blur-radius, $color){
+//     offset:$offset-x;
+//     offset:$offset-y;
+//     blur-radius
+
+@mixin text_grid($top,$left,$transform){
+    position:absolute;
+    color: aliceblue;
+    font-size: 32px;
+    text-shadow: 2px 2px 2px #02312d;
+    text-shadow: 2px 2px 2px #02312d;
+    text-shadow: 4px 4px 4px rgb(1, 1, 1);
+    top: $top;
+    left:$left;
+    transform: $transform;
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Conservación, Fundación, Fundaciones, ONG, Naturaleza">
+    <meta name="description" content="Fundación Gradientes, para al conservación de la naturaleza y su biodiversidad">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Fundación Gradientes, conoce nuestros proyectos y cómo trabajamos</title>
+    <link rel="shortcut icon" href="../IMG/Favicon/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/53a2fe66f9.js" crossorigin="anonymous"></script>
+    <!-- css from bs -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- my css -->
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body >
+    <!-- starting nav bar -->
+    <nav class="navbar navbar-expand-lg" id="bg_navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../IMG/Logo/LOGO GRADIENTES-01.png" alt="Logo de la Fundación Gradientes">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="conocenos.html">Conocenos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="proyectos.html">Proyectos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="publicaciones.html">Publicaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactanos.html">Contactanos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="donaciones.html">Donaciones</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- starting main -->
+      <main class="main_container_donaciones" class="body_donaciones">
+        <section class="main_container_background_section">
+            <div class="card_donaciones" >
+              <img class="card_donaciones_logo" src="../IMG/tarjeta_credito/card-logo.svg" alt="logo tarjeta credito">
+              <h1 class="card_number" id="number">
+                0000 0000 0000 0000
+              </h1>
+              <div class="card_details">
+                <span class="card_details_name" id="name">
+                  Pepito Peralta
+                </span>
+                <span class="card_details_date" id="date">
+                  <span class="card_month" id="month">00</span>/ <span class="card_year" id="year">00</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="card_back">
+              <span class="card_back_cvc" id="cvc">000</span>
+            </div>
+        </section>
+
+        <!-- starting form section -->
+
+        <section class="rigth_section">
+          <form class="form_donaciones" action="">
+            <div class="grid_1">
+              <label for="card_name"> <b>Titular de la tarjeta</b></label>
+              <input class="form_donaciones_input" type="text" name="card_name" id="card_name" placeholder="e.g. Pepito Peralta" required>
+            </div>
+            
+            <div class="form_error_cardholder error grid_2">
+              <label for="card_number"> Número de tarjeta </label>
+              <input class="form_donaciones_input" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)"  name="card_number" minlength="16" maxlength="16" id="card_number" placeholder="e.g. 1234 5678 9123 0000" required>
+            </div>
+          
+            <div class="form_date_cvc card_information">
+              <div class="grid_3" id="card_donations_date">
+                <label for="card_date"> Fecha de expedición (MM/YY)  </label>
+                <div class="two_inp">
+                  <div>
+                    <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)" minlength="2" maxlength="2" name="card_month" id="card_month" placeholder="MM" required>
+                  </div>
+                  <div>
+                    <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)" minlength="2" maxlength="2" name="Card_year" id="card_year" placeholder="YY" required>
+                  </div>
+                </div>
+              </div>
+              <div class="grid_4" >
+                <label for="card_cvc"> CVC  </label>
+                <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)" minlength="3" maxlength="3" id="card_cvc" name="card_cvc" placeholder="e.g. 123" required>
+              </div>
+            </div>  
+            <button id="submit_btn" type="submit" >Confirmar</button>
+          </form>
+          <div class="thank hidden">
+            <img src="../IMG/tarjeta_credito/icon-complete.svg" alt="completed">
+            <h1 class="thanks_donations">Gracias!</h1>
+            <p>Hemos agregado los detalles de su tarjeta</p>
+            <button>Continuar</button>
+          </div>
+      </main>
+
+
+<!-- finishing content -->
+
+      <footer>
+        <div class="container_footer">
+            <a href="https://www.instagram.com/fundgradientes/"> 
+                <img src="../IMG/social_media/instagram.png" alt="instagram de la Fundación Gradientes https://www.instagram.com/fundgradientes/" class="icon_sm" >
+            </a>
+            <a href="https://www.facebook.com">
+                <img src="../IMG/social_media/facebook.png" alt="https://wwww.facebook.com" class="icon_sm">
+            </a>
+            <a href="https://wwww.twitter.com">
+                <img src="../IMG/social_media/gorjeo.png" alt="https://wwww.twitter.com" class="icon_sm">
+            </a>
+            <a href="#"> 
+                <img src="../IMG/social_media/whatsapp.png" alt="whats app de la Fundación Gradientes" class="icon_sm">
+            </a>
+        </div>         
+        <div class="copyrigth">
+            <p>
+                Copyright © 2022 - Desarrollado por 
+            </p>
+            <a href="https://github.com/FeliPanda"> <strong> FeliPanda</strong>  
+            </a>
+        </div>
+    </footer>
+    
+    <script src="../apps.js"></script>
+    <script src="../js/bootstrap.bundle.js"></script>
+</body>
+</html>
+</body>
+</html>
