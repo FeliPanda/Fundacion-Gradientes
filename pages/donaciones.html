@@ -46,6 +46,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="donaciones.html">Donaciones</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Animales.html">Animales</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -83,26 +86,26 @@
               <input class="form_donaciones_input" type="text" name="card_name" id="card_name" placeholder="e.g. Pepito Peralta" required>
             </div>
             
-            <div class="form_error_cardholder error grid_2">
-              <label for="card_number"> Número de tarjeta </label>
-              <input class="form_donaciones_input" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)"  name="card_number" minlength="16" maxlength="16" id="card_number" placeholder="e.g. 1234 5678 9123 0000" required>
+            <div class="grid_2">
+              <label for="card_number"> <b> Número de tarjeta </b> </label>
+              <input class="form_donaciones_input" type="number" oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)"  name="card_number" minlength="16" maxlength="16" id="card_number" placeholder="e.g. 1234 5678 9123 0000" required>
             </div>
           
             <div class="form_date_cvc card_information">
               <div class="grid_3" id="card_donations_date">
-                <label for="card_date"> Fecha de expedición (MM/YY)  </label>
+                <label for="card_date"> <b> Fecha de expedición (MM/YY) </b> </label>
                 <div class="two_inp">
                   <div>
-                    <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)" minlength="2" maxlength="2" name="card_month" id="card_month" placeholder="MM" required>
+                    <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)" minlength="2" maxlength="2" name="card_month" id="card_month" placeholder="MM" required>
                   </div>
                   <div>
-                    <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)" minlength="2" maxlength="2" name="Card_year" id="card_year" placeholder="YY" required>
+                    <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)" minlength="2" maxlength="2" name="Card_year" id="card_year" placeholder="YY" required>
                   </div>
                 </div>
               </div>
               <div class="grid_4" >
                 <label for="card_cvc"> CVC  </label>
-                <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value.slice(0,this.maxLength)" minlength="3" maxlength="3" id="card_cvc" name="card_cvc" placeholder="e.g. 123" required>
+                <input class="form_donaciones_input input_peque" type="number" oninput="if(this.value.length > this.maxLength) this.value=this.value.slice(0,this.maxLength)" minlength="3" maxlength="3" id="card_cvc" name="card_cvc" placeholder="e.g. 123" required>
               </div>
             </div>  
             <button id="submit_btn" type="submit" >Confirmar</button>
@@ -144,7 +147,5 @@
     
     <script src="../apps.js"></script>
     <script src="../js/bootstrap.bundle.js"></script>
-</body>
-</html>
 </body>
 </html>
