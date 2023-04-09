@@ -1,92 +1,66 @@
-var animals = [
-    {
-    nombre: "Cóndor de los Andes",
-    nombre_cientifico: "Vultur gryphus",
-    habitat: "Montañas de los Andes",
-    descripcion: "El cóndor de los Andes es una especie de ave rapaz que habita en las montañas de los Andes en Sudamérica. Es una de las aves más grandes del mundo, con una envergadura de hasta 3 metros."
-    },
-    {
-    nombre: "Oso de anteojos",
-    nombre_cientifico: "Tremarctos ornatus",
-    habitat: "Bosques tropicales",
-    descripcion: "El oso de anteojos es una especie de oso que habita en los bosques tropicales de Sudamérica, incluyendo Colombia. Es uno de los pocos osos que habita en América del Sur y se caracteriza por tener manchas blancas alrededor de los ojos."
-    },
-    {
-    nombre: "Caimán",
-    nombre_cientifico: "Crocodylus intermedius",
-    habitat: "Ríos y lagunas",
-    descripcion: "El caimán del Orinoco es una especie de caimán que habita en los ríos y lagunas de Sudamérica, incluyendo Colombia. Es uno de los caimanes más grandes del mundo, con una longitud de hasta 6 metros."
-    },
-    {
-    "nombre": "Jaguar",
-    "nombre_cientifico": "Panthera onca",
-    "habitat": "Selvas tropicales",
-    "imagen": "https://www.nationalgeographic.com.es/medio/2021/01/19/jaguar_37b3f3f3_2000x1333.jpg",
-    "descripcion": "El jaguar es el felino más grande de América y uno de los más emblemáticos de Colombia. Su pelaje es de un color amarillo dorado con manchas negras. Es un depredador solitario y su dieta consiste principalmente en mamíferos grandes como monos, tapires y venados."
-}
-];
-// starting favorites section, add an animal to a favorites and save it on storage
+// // DOM HTML of animals array
 
-// var favoriteAnimal = document.getElementById("favorite_animal");
-// favoriteAnimal.addEventListener("click", function() {
-//     var addedFavorites = new Image();
-//     addedFavorites.src = "favorito_lleno.png";
-//     addedFavorites.onload = function(){
-//         favoriteAnimal.src = addedFavorites.src;
-//     }
+// const likeAnimal = document.querySelector(".container_animals");
+
+// const animals_images = animals.forEach((animal)=>{
+//     const cardAnimal = document.createElement("div");
+//     cardAnimal.className = "card_animals"
+//     cardAnimal.innerHTML = `
+//     <div class = "animal_img face front">
+//         <img src=" ${animal.imagen}" alt="${animal.nombre}">
+//         <p class = "tittle_pro"> ${animal.nombre} </p>
+//     </div>
+
+//     <div class = "Center_favorite">
+//         <div class = "image_1">
+//         </div>
+//     </div>
+//     `
+//     likeAnimal.appendChild(cardAnimal);
+// })
+
+// // change hearth img to full hearth img as a like 
+
+// const iLikeIt = document.querySelectorAll(".Center_favorite");
+// const liked = document.querySelectorAll(".image_1");
+
+// iLikeIt.forEach((like,index)=>{
+//     like.addEventListener("click",()=>{
+//         liked[index].classList.toggle("image_2");
+//     });
 // });
 
-// esta parte de arriba no me funciono para cambiar la imagen al dar click :( 
+const likeAnimal = document.querySelector(".container_animals");
 
-// intento dos para cambiar imagen al dar click, 
+fetch('../informacion_animals.json')
+.then(response => response.json())
+.then(data => {
+    data.animals.forEach(animal => {
+        const cardAnimal = document.createElement("div");
+        cardAnimal.className = "card_animals"
+        cardAnimal.innerHTML = `
+        <div class = "animal_img face front">
+            <img src=" ${animal.imagen}" alt="${animal.nombre}">
+            <p class = "tittle_pro"> ${animal.nombre} </p>
+        </div>
 
-const favorites = document.querySelector(".Center_favorite");
-const like = document.querySelector(".div_like")
+        <div class = "Center_favorite">
+            <div class = "image_1">
+            </div>
+        </div>
+        `;
+        likeAnimal.appendChild(cardAnimal);
 
-favorites.onclick = (e) => {
-    like.classList.toggle("image_2")
-}
+        const iLikeIt = cardAnimal.querySelector(".Center_favorite");
+        const liked = cardAnimal.querySelector(".image_1");
 
-// funciono la segunda opcion, pero solo para el primero(el jaguar), 
-// intente cambiar query selector por queryselectorAll, que lei que podia funcionar, pero no me funciono
-
-// ahora agregarlos al storage tambien
-// no me va no se si es porque debo crear un obligatoriamente un boton.
-// o si debe ir dentro del html el nombre de cada animal, pero como tengo las imagenes no queria que 
-// aparecieran los nombres y asi.
-
-var addFavorites = document.querySelectorAll(".div_like");
-for (var i = 0; i < addFavorites.length; i++) {
-    addFavorites[i].addEventListener("click", function(){
-        var animal = this.getAttribute("data-animal");
-        var animalInformation = animal[animals];
-        var animalInformationJSON = JSON.stringify(animalInformation);
-        localStorage.setItem("animal_favorito", animalInformationJSON);
-        alert("El animal " + animalInformation.nombre + " ha sido agregado a favoritos.");
+        iLikeIt.addEventListener("click",()=>{
+            liked.classList.toggle("image_2");
+            const emptyHeart = liked.querySelector(".empty-heart");
+            const fullHeart = liked.querySelector(".full-heart");
+            // emptyHeart.classList.toggle("hidden");
+            // fullHeart.classList.toggle("hidden");
+        });
     });
-}
-
-
-// esta es una funcion para agrandar la imagen al dar click, la hice unicamente para el jaguar tambien,
-// sin embargo aun no funciona bien porque me expanda la imagen como si hiciera zoom
-// y no me la muestra completa, no se si si es porque estoy usando un link y debo descargar la imagen
-// o porque sucede eso
-
-function enlargeImage(container) {
-    if (!container.isEnlarged) {
-    container.querySelector('img').style.transform = 'scale(3)';
-    container.style.width = '1650px';
-    container.style.height = '850px';
-    container.isEnlarged = true;
-    container.preventDefault()
-    }
-}
-
-function shrinkImage(container) {
-    container.querySelector('img').style.transform = 'scale(1)';
-    container.style.width = '500px';
-    container.style.height = '500px';
-    container.isEnlarged = false;
-}
-
-
+})
+.catch(error => console.error(error));

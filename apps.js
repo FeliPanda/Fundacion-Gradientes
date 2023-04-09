@@ -12,6 +12,17 @@ const submitBtn = document.getElementById("submit_btn");
 const compeleted = document.querySelector(".thank");
 const form = document.querySelector("form");
 
+// API valdiar tarjeta
+var lookup = require('binlookup')()
+lookup('45717360', function( err, data ){
+    if (err)
+    return console.error(err)
+    console.log(data)
+})
+
+lookup('45717360').then(console.log, console.error)
+
+
 function setCardNumber(e) {
     cardNumber.innerText = format(e.target.value);
 }

@@ -534,6 +534,7 @@ footer{
     color: #706c6c;
     font-size: 1rem;
     padding: .6em .3em;
+    padding-bottom: 0;
     border: none;
     outline: none;
     border-bottom: 1px solid rgb(196, 195, 195);
@@ -550,13 +551,15 @@ footer{
     color: var(--color);
     cursor: pointer;
     position: absolute;
-    top: 0;
+    top: -8px;
     left: 5px;
     transform: translateY(10px);
     transition: transform .5s, color ,3s;
 }
 
 .form_submit{
+    display: block;
+    margin: 0 auto;
     width: 150px;
     background: #3866f2;
     color: white;
@@ -931,58 +934,69 @@ form button{
     }
 }
 
-
-
 // starting animals page
 
-
-.card_projects2{
-    position: relative;
-    width: 300px;
-    height: 350px;
-    margin: 20px;
-    
-    .face{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        border-radius: 10px;
-        overflow: hidden;
-        transition: .5s;
-    }
-    .front{
-        transform: perspective(600px) rotateY(0deg);
-        box-shadow: 0 5px 10px #000;
-        img{
-            position: absolute;
+.container_animals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    .card_animals{
+        position: relative;
+        width: 250px;
+        height: 300px;
+        margin: 20px;
+        .animal_img {
+            position: relative;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-        }
-        .tittle_pro{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 45px;
-            line-height:45px;
-            color: #fff;
-            background: rgba($color: #000000, $alpha: .4);
-            text-align: center;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
+            backface-visibility: hidden;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: .5s;
+            transform: perspective(600px) rotateY(0deg);
+            box-shadow: 0 5px 10px #000;
+                img{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            .tittle_pro{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 45px;
+                line-height:45px;
+                color: #fff;
+                background: rgba($color: #000000, $alpha: .4);
+                text-align: center;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }    
+        }   
+        
     }
 }
 
 
-.content_animals {
-    div{
-        display: flex !important;
-    }
-    .Center_favorite{
-        justify-content: center !important;
-    }
-} 
+.Center_favorite{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    // position: relative;
+}
+// }
+.image_1{
+    background-image: url(../IMG/iconos/favorito.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 35px;
+}
 
 .tittle_animals{
     div{
@@ -996,13 +1010,7 @@ form button{
     }
 }
 
-.image_1{
-    background-image: url(../IMG/iconos/favorito.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 35px;
-    height: 35px; 
-}
+
 
 .image_2{
     background-image: url(../IMG/iconos/favorito_lleno.png);
@@ -1015,10 +1023,10 @@ form button{
 
 
 
-// zoom a la imagen animaciones
-#img_container{
-    z-index: 1;
-}
+// // zoom a la imagen animaciones
+// #img_container{
+//     z-index: 1;
+// }
 
 
 
